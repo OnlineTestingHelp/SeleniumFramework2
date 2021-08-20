@@ -29,6 +29,8 @@ import com.qa.orangeHRM.util.util;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 
 public class base {
@@ -50,8 +52,9 @@ public class base {
 		log.info("Before Method is started");
 		if(browser.contains("Chrome")) {
 			log.info("Executing on browser "+ browser);
-			System.setProperty("webdriver.chrome.driver", "F:\\Selenium-Batch-58\\Soft&Jars\\chromedriver_win32\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", "F:\\Selenium-Batch-58\\Soft&Jars\\chromedriver_win32\\chromedriver.exe");
 			
+			WebDriverManager.chromedriver().setup();
 			//Need to create the object for chrome
 			driver= new ChromeDriver();
 			driver.get(util.getProperty("URL"));
@@ -114,6 +117,14 @@ public class base {
 		report.flush();
 	}
 	
+	public static String capture(WebDriver driver) throws IOException {
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File Dest = new File("src/../Images/" + System.currentTimeMillis()
+		+ ".png");
+		String errflpath = Dest.getAbsolutePath();
+		FileUtils.copyFile(scrFile, Dest);
+		return errflpath;
+		}
 
 	
 }

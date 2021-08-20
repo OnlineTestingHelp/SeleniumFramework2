@@ -9,12 +9,7 @@
   <test name="Test">
   <parameter name="BrowserName" value="Chrome"></parameter>
     <classes>
-<!--     	<class name="com.qa.orangeHRM.testcases.LoginTest"/>
-      	<class name="com.qa.orangeHRM.testcases.AddingJobTitleTest"/>
-      	<class name="com.qa.orangeHRM.testcases.AddingPayGrades"/> -->
-      	<class name="com.qa.orangeHRM.testcases.EmpFileUpload"/>
-      	
-      	
-    </classes>
+     	<class name="com.qa.orangeHRM.testcases.LoginTest"></class>
+     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
